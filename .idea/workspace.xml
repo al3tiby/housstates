@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="126ae16a-aea8-4e57-b15c-276f45c8e511" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/projects/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/templates/projects/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/blog/blogs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emails/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/emails/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_management/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_management/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_management/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_management/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/projects/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +33,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/3toby/Desktop/code/python-web-development/Django/ecommerce-preparing-for-hsuob-exam/hsoubexam/housstates",
+    "last_opened_file_path": "/Users/3toby/Desktop/code/python-web-development/Django/ecommerce-preparing-for-hsuob-exam/hsoubexam/housstates/projects/templates/projects",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -46,7 +41,13 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/projects/templates/projects" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/blog" />
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/projects/templates/projects" />
       <recent name="$PROJECT_DIR$/projects/templates" />
     </key>
   </component>
@@ -83,7 +84,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669754884891</updated>
-      <workItem from="1669754888868" duration="10471000" />
+      <workItem from="1669754888868" duration="12501000" />
     </task>
     <servers />
   </component>
