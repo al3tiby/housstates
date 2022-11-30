@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+
+    <!-- Start: Gallery Centered Grid -->
+    <div class="container d-flex flex-column align-items-center py-4 py-xl-5">
+        <div class="row col-lg-12 mb-5">
+            <div class="col-md-8 col-xl-6 col-xxl-10 text-center mx-auto" style="padding-right: 0px;padding-left: 0px;">
+                <h2>{{ blog.title }}</h2>
+                <p class="w-lg-50">{{ blog.short_description }}</p>
+            </div>
+        </div>
+        <div class="row gy-4 w-100" style="max-width: 800px;">
+            <div class="col-12">
+                <div class="card"><img class="card-img w-100 d-block" src="{{ blog.image.url }}"></div>
+            </div>
+        </div>
+        <div class="row gy-4 w-100" style="max-width: 800px;">
+            <div class="col-12">
+                <div class="card">
+                    <p style="margin-top: 35px; margin-left: 5px; margin-right: 5px;">{{ blog.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End: Gallery Centered Grid -->
+
+{% endblock content %}
+

@@ -13,22 +13,55 @@
     </div>
     <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
 
+        {% for blog in blogs %}
         <div class="col">
-            <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" />
+            <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{ blog.image.url }}" />
                 <div class="card-body p-4">
-                    <h4 class="card-title">Lorem libero donec</h4>
-                    <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                    <h4 class="card-title">{{ blog.title }}</h4>
+                    <p class="card-text">{{ blog.short_description }}</p>
                     <div class="d-flex">
-                        <div><a href="#">{% trans 'Learn More ' %}<svg class="bi bi-arrow-right" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
-                                </svg></a></div>
+                        <div><a href="{{ blog.id }}">{% trans 'Learn More ' %}<svg class="bi bi-arrow-right" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
 
     </div>
 
+    {% if page_obj.paginator.count > 0 %}
+            <div class="d-flex justify-content-center bd-highlight mt-3 mb-3">
+                <nav>
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}"> {# projectcat from project caegory, so can used in admin panel  #}
+                                    {% trans 'Previous' %}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">{% trans 'Previous' %}</a>
+                            </li>
+                        {% endif %}
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                                    {% trans 'Next' %}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">{% trans 'Next' %}</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        {% endif %}
 
 </div>
     <!-- End: Articles Cards -->

@@ -22,7 +22,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', include('projects.urls'))
+    path('', include('projects.urls')),
+    path('blogs/', include('blog.urls'))
 ]
 
 # Images url settings
