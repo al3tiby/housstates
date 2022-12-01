@@ -13,7 +13,7 @@ class NewsletterEmails(models.Model):
 class ContactData(models.Model):
     customer_name = models.CharField(max_length=255)
     customer_email = models.EmailField()
-    customer_message = models.TextField(max_length=500)
+    customer_message = models.TextField()
 
     def __str__(self):
         return self.customer_name

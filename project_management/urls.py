@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('projects.urls')),
-    path('blogs/', include('blog.urls'))
+    path('blogs/', include('blog.urls')),
+    path('email/', include('emails.urls'))
 ]
 
 # Images url settings
