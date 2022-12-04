@@ -42,26 +42,34 @@
     <!-- Start: Footer Dark -->
     <footer class="text-center bg-dark" style="margin-bottom: -1px;padding-bottom: 0px;padding-top: 0px;margin-top: 0px;">
         <!-- Start: Newsletter Subscription Color -->
-        <section class="py-4 py-xl-5">
+        {% if request.user.is_superuser %}
+        {% else %}
+            <section class="py-4 py-xl-5">
             <div class="container">
                 <div class="text-white bg-dark border rounded border-0 border-light d-flex flex-column justify-content-between align-items-center flex-lg-row p-4 p-lg-5">
                     <div class="text-center text-lg-start py-3 py-lg-1">
                         <h2 class="fw-bold mb-2"><strong>{% trans 'Subscribe to our newsletter' %}</strong></h2>
                         <p class="mb-0">{% trans 'Subscribe to our newsletter to receive offers, discounts and the best real estate deals.' %}</p>
                     </div>
-                    <form class="d-flex justify-content-center flex-wrap my-2" method="post" style="margin-left: 11px;">
-                        {% csrf_token %}
-                        <div class="my-2"><input class="form-control" type="text" name="name" placeholder="{% trans 'Your name' %}" style="padding-left: 89px;margin-top: 3px;margin-bottom: 4px;padding-top: 6px;"><input class="form-control" type="email" name="email" placeholder="{% trans 'Your Email' %}" style="padding-left: 89px;margin-bottom: 4px;padding-top: 6px;margin-top: 11px;"><button class="btn btn-primary ms-sm-2" type="submit" style="margin-top: 9px;">{% trans 'Subscribe ' %}</button></div>
+                    <form action="{% url 'newsletter' %}" class="d-flex justify-content-center flex-wrap my-2" method="post" style="margin-left: 11px;">
+                        {% include 'email/newsletter.html' %}
                     </form>
                 </div>
             </div>
-        </section><!-- End: Newsletter Subscription Color -->
+        </section>
+        {% endif %}
+        <!-- End: Newsletter Subscription Color -->
         <div class="container text-white py-4 py-lg-5">
             <ul class="list-inline">
                 <li class="list-inline-item me-4"><a class="link-light moveit" href="{% url 'projects' %}">{% trans 'Home' %}</a></li>
                 <li class="list-inline-item me-4"><a class="link-light moveit" href="{% url 'blogs' %}">{% trans 'Blog' %}</a></li>
                 <li class="list-inline-item me-4"><a class="link-light moveit" href="{% url 'contact' %}">{% trans 'Contact Us' %}</a></li>
-                <li class="list-inline-item"><a class="link-light moveit" href="#">{% trans 'Login For Stuff' %}</a></li>
+                {% if request.user.is_superuser %}
+                <li class="list-inline-item"><a class="link-light moveit" href="{% url 'control_panel' %}">{% trans 'Login For Stuff' %}</a></li>
+                <li class="list-inline-item"><a class="link-light moveit" href="{% url 'admin_login' %}" target="_blank">{% trans 'Django admin panel' %}</a></li>
+                {% else %}
+                <li class="list-inline-item"><a class="link-light moveit" href="{% url 'admin_login' %}">{% trans 'Login For Stuff' %}</a></li>
+                {% endif %}
             </ul>
             <ul class="list-inline">
                 <li class="list-inline-item me-4"><a class="link-light" href="https://www.youtube.com/channel/UCX-JZofkm6uTDpFCo6fZrmw" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-youtube text-light" style="font-size: 20px;">

@@ -1,0 +1,158 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+
+    <div class="container mt-xxl-0">
+        <h1 style="text-align: center;" class="mt-xxl-5 mt-5 mb-5 mb-xxl-5">{% trans 'Admin Control Panel' %}</h1>
+    </div>
+    <!-- Start: 2 Rows 1+1 Columns -->
+    <div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>{% trans 'Latest projects:' %}</h2>
+        </div>
+        <div class="col-md-2"><a class="btn btn-primary mt-1" href="{% url 'create_project' %}">{% trans 'Create a new project' %}</a></div>
+    </div>
+    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3 mt-xxl-0 pt-xxl-2">
+
+        {% for project in projects %}
+        <div class="col">
+            <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{ project.image.url }}" />
+                <div class="card-body p-4">
+                    <h4 class="card-title">{{ project.title }}</h4>
+                    <p class="card-text">{{ project.short_description }}</p>
+                    <div class="d-flex">
+                        <div><a href="{% url 'update_project' project.id %}" style="font-size: 22px;">{% trans 'Edit' %}</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if projects.paginator.count > 0 %}
+            <div class="d-flex justify-content-center bd-highlight mt-3 mb-3">
+                <nav>
+                    <ul class="pagination">
+                        {% if projects.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?project_page={{ projects.previous_page_number }}"> {# projectcat from project caegory, so can used in admin panel  #}
+                                    {% trans 'Previous' %}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">{% trans 'Previous' %}</a>
+                            </li>
+                        {% endif %}
+                        {% if projects.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?project_page={{ projects.next_page_number }}">
+                                    {% trans 'Next' %}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">{% trans 'Next' %}</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        {% endif %}
+
+    </div>
+    <!-- End: 2 Rows 1+1 Columns -->
+    <!-- Start: 2 Rows 1+1 Columns -->
+    <div class="container mt-xxl-5 pt-xxl-4">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>{% trans 'Latest bolgs:' %}</h2>
+        </div>
+        <div class="col-md-2"><a class="btn btn-primary mt-1" href="{% url 'create_blog' %}">{% trans 'Write a new blog' %}</a></div>
+    </div>
+    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3 mt-xxl-0 pt-xxl-2">
+        {% for blog in blogs %}
+        <div class="col">
+            <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{ blog.image.url }}" />
+                <div class="card-body p-4">
+                    <h4 class="card-title">{{ blog.title }}</h4>
+                    <p class="card-text">{{ blog.short_description }}</p>
+                    <div class="d-flex">
+                        <div><a href="{% url 'update_blog' blog.id %}" style="font-size: 22px;">{% trans 'Edit' %}</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if blogs.paginator.count > 0 %}
+            <div class="d-flex justify-content-center bd-highlight mt-3 mb-3">
+                <nav>
+                    <ul class="pagination">
+                        {% if blogs.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?blog_page={{ blogs.previous_page_number }}"> {# projectcat from project caegory, so can used in admin panel  #}
+                                    {% trans 'Previous' %}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">{% trans 'Previous' %}</a>
+                            </li>
+                        {% endif %}
+                        {% if blogs.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?blog_page={{ blogs.next_page_number }}">
+                                    {% trans 'Next' %}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">{% trans 'Next' %}</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        {% endif %}
+</div>
+    <!-- End: 2 Rows 1+1 Columns -->
+    <!-- Start: 2 Rows 1+1 Columns -->
+    <div class="container mt-xxl-5 pt-xxl-4">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>{% trans 'Latest emails:' %}</h2>
+        </div>
+        <div class="col-md-2"><a class="btn btn-primary mt-1" href="#">{% trans 'Send new email' %}</a></div>
+    </div>
+    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3 mt-xxl-0 pt-xxl-2">
+
+        <div class="col">
+            <div class="card">
+                <div class="card-body p-4">
+                    <h4 class="card-title">Lorem libero donec</h4>
+                    <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-xxl-12 pt-xxl-0 mt-xxl-4">
+        <div class="row">
+            <div class="d-flex aligns-items-center justify-content-center">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- End: 2 Rows 1+1 Columns -->
+
+{% endblock content %}

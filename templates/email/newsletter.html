@@ -1,0 +1,11 @@
+{% load static %}
+{% load i18n %}
+
+<form action="{% url 'newsletter' %}" class="d-flex justify-content-center flex-wrap my-2" method="post" style="margin-left: 11px;">
+    {% csrf_token %}
+    <div class="my-2">
+        <input class="form-control" type="text" name="name" placeholder="{% trans 'Your name' %}" style="padding-left: 89px;margin-top: 3px;margin-bottom: 4px;padding-top: 6px;">
+        <input class="form-control" type="email" name="email" placeholder="{% trans 'Your Email' %}" style="padding-left: 89px;margin-bottom: 4px;padding-top: 6px;margin-top: 11px;">
+        <button class="btn btn-primary ms-sm-2" type="submit" style="margin-top: 9px;">{% trans 'Subscribe ' %}</button>
+    </div>
+</form>

@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
+from django.urls import reverse, reverse_lazy
+
 from .models import *
 from django.core.mail import send_mail
 
@@ -33,3 +35,25 @@ def contact_us(request):
 
     else:
         return render(request, 'email/contact/contact_us.html', {})
+
+
+
+def newsletteremails(request):
+    if request.method == 'POST':
+        newsletter_name = request.POST['name']
+        newsletter_email = request.POST['email']
+
+        if NewsletterEmails.objects.filter(customer_email=newsletter_email).exists():
+            return redirect('projects')
+        else:
+            save_newsletter = NewsletterEmails.objects.create(
+                customer_name=newsletter_name,
+                customer_email=newsletter_email
+            )
+            save_newsletter.save()
+        return redirect('projects')
+
+    else:
+        return redirect('projects')
+
+    return render(request, 'email/newsletter.html', {})

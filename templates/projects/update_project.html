@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+    <!-- Start: Ludens - 2 Create -->
+    <section class="clean-block clean-form dark">
+        <div class="container">
+            <div class="row" style="margin-right: 0px;margin-left: 0px;">
+                <div class="col-md-12" style="margin-bottom: 25px;padding-left: 5%;font-size: 21px;margin-top: 73px;"><a class="anone" href="{% url 'control_panel' %}"><i class="fa fa-long-arrow-left"></i><span>&nbsp;{% trans ' back' %}</span></a></div>
+            </div>
+            <div class="block-heading" style="padding-top: 0px;"><h2 class="text-primary">{% trans 'Update Project' %} #{{ object.id }}</h2></div>
+            <form class="form-control" style="max-width: 700px;" role="form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <hr style="margin-top: 30px;margin-bottom: 10px;">
+                <div class="form-group mb-3"><button class="btn btn-primary d-block w-100" id="submitButton" type="submit"><i class="fas fa-save"></i>&nbsp;{% trans 'Save' %}</button><a class="btn btn-danger d-block w-100" role="button" href="{% url 'control_panel' %}" style="margin-top: 15px;"><i class="fas fa-arrow-left"></i>&nbsp;{% trans 'Cancel' %}</a></div>
+            </form>
+        </div>
+    </section><!-- End: Ludens - 2 Create -->
+    <!-- Start: Footer Dark -->
+
+{% endblock content %}
