@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth.decorators import user_passes_test
 from django.views.generic import ListView, UpdateView
-from emails import views
 from .models import *
 from .forms import *
 

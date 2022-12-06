@@ -27,7 +27,7 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m3uw1*oiz=5tivt2r=*@4h-)ajb24x9x4+h&g(f5_d7*y7^p1x'
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,10 +45,34 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'sorl.thumbnail',
+    'tinymce',
+    'crispy_forms',
+
     'projects.apps.ProjectsConfig',
     'emails.apps.EmailsConfig',
     'blog.apps.BlogConfig',
 ]
+INSTALLED_APPS += ("djcelery_email")
+
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
+# newsletter settings
+# Using sorl-thumbnail
+NEWSLETTER_THUMBNAIL = 'sorl-thumbnail'
+# Using django-tinymce
+NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
+NEWSLETTER_CONFIRM_EMAIL = False
+
+# CELERY_EMAIL_TASK_CONFIG = {
+#     'queue': 'email',
+#     'rate_limit': '50/m',
+#     'name': 'djcelery_email_send',
+#     'ignore_result': True,
+# }
+# CELERY_EMAIL_CHUNK_SIZE = 40
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -150,7 +174,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # EMAIL configrations for sending emails
 # https://docs.djangoproject.com/en/4.1/topics/email/
 
-EMAIL_BACKEND = env('EMAIL_BACKEND')
+EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
 EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_PORT = env('EMAIL_PORT')
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')

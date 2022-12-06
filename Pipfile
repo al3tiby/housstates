@@ -8,6 +8,11 @@ django = "*"
 pillow = "*"
 psycopg2 = "*"
 django-environ = "*"
+django-newsletter = "*"
+django-tinymce = "*"
+sorl-thumbnail = "*"
+django-crispy-forms = "*"
+django-celery-email = "*"
 
 [dev-packages]
 

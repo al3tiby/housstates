@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import user_passes_test
 from projects.models import Projects
 from blog.models import Blog
+from emails.models import SentedEmails
 
 
 
@@ -29,9 +30,20 @@ def admin_lists(request):
     except EmptyPage:
         blogs = paginator.page(paginator.num_pages)
 
+    emails = SentedEmails.objects.all().order_by('-id')
+    paginator = Paginator(emails, 3)
+    page = request.GET.get('email_page')
+    try:
+        emails = paginator.page(page)
+    except PageNotAnInteger:
+        emails = paginator.page(1)
+    except EmptyPage:
+        emails = paginator.page(paginator.num_pages)
+
 
     context = {
         'projects': projects,
-        'blogs': blogs
+        'blogs': blogs,
+        'emails': emails
     }
     return render(request, 'admin/control_panel.html', context)
