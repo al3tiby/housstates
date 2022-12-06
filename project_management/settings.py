@@ -64,13 +64,13 @@ NEWSLETTER_THUMBNAIL = 'sorl-thumbnail'
 NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
 NEWSLETTER_CONFIRM_EMAIL = False
 
-# CELERY_EMAIL_TASK_CONFIG = {
-#     'queue': 'email',
-#     'rate_limit': '50/m',
-#     'name': 'djcelery_email_send',
-#     'ignore_result': True,
-# }
-# CELERY_EMAIL_CHUNK_SIZE = 40
+CELERY_EMAIL_TASK_CONFIG = {
+    'queue': 'email',
+    'rate_limit': '50/m',
+    'name': 'djcelery_email_send',
+    'ignore_result': True,
+}
+CELERY_EMAIL_CHUNK_SIZE = 40
 
 
 
@@ -174,7 +174,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # EMAIL configrations for sending emails
 # https://docs.djangoproject.com/en/4.1/topics/email/
 
-EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
+EMAIL_BACKEND = env('EMAIL_BACKEND')
 EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_PORT = env('EMAIL_PORT')
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')

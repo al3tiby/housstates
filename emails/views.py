@@ -88,16 +88,15 @@ def newsletter_senders(request):
             emails = ','.join([active.customer_email for active in NewsletterEmails.objects.all()]).split(',')
 
             mail = EmailMessage(
-                subject,
-                message,
-                settings.EMAIL_HOST_USER,
-                to=emails
+                subject=subject,
+                body=message,
+                from_email=settings.EMAIL_HOST_USER,
+                bcc=emails
             )
             mail.content_subtype = 'html'
 
             if mail.send():
                 messages.success(request, "Email sent successfully")
-                print(emails)
                 save_sented_newsletter = SentedEmails.objects.create(
                     email_subject=subject,
                     email_body=message
@@ -105,7 +104,6 @@ def newsletter_senders(request):
                 save_sented_newsletter.save()
 
             else:
-                # connection.close()
                 messages.error(request, "There was an error sending email")
 
         else:
