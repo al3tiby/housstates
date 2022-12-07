@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import user_passes_test
 from projects.models import Projects
 from blog.models import Blog
 from emails.models import SentedEmails
+from django.utils.translation import gettext as _
+
 
 
 

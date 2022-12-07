@@ -6,6 +6,6 @@ from django.utils.translation import gettext as _
 class ProjectUpdateForm(forms.ModelForm):
     class Meta:
         model = models.Projects
-        fields = ['title', 'short_description', 'image']
+        fields = [_('title'), _('short_description'), _('image')]
 
 

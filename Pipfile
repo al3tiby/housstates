@@ -13,6 +13,8 @@ django-tinymce = "*"
 sorl-thumbnail = "*"
 django-crispy-forms = "*"
 django-celery-email = "*"
+django-translation-manager = "*"
+faker = "*"
 
 [dev-packages]
 

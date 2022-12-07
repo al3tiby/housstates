@@ -22,8 +22,8 @@
         <div class="col">
             <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{ project.image.url }}" />
                 <div class="card-body p-4">
-                    <h4 class="card-title">{{ project.title }}</h4>
-                    <p class="card-text">{{ project.short_description }}</p>
+                    <h4 class="card-title">{{ project.title|slice:":30" }}</h4>
+                    <p class="card-text">{{ project.short_description|slice:":170" }}...</p>
                     <div class="d-flex">
                         <div><a href="{% url 'update_project' project.id %}" style="font-size: 22px;">{% trans 'Edit' %}</a></div>
                     </div>
@@ -79,8 +79,8 @@
         <div class="col">
             <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{ blog.image.url }}" />
                 <div class="card-body p-4">
-                    <h4 class="card-title">{{ blog.title }}</h4>
-                    <p class="card-text">{{ blog.short_description }}</p>
+                    <h4 class="card-title">{{ blog.title|slice:":30" }}</h4>
+                    <p class="card-text">{{ blog.short_description|slice:":170" }}...</p>
                     <div class="d-flex">
                         <div><a href="{% url 'update_blog' blog.id %}" style="font-size: 22px;">{% trans 'Edit' %}</a></div>
                     </div>
@@ -136,8 +136,8 @@
         <div class="col">
             <div class="card">
                 <div class="card-body p-4">
-                    <h4 class="card-title">{{ email.email_subject }}</h4>
-                    <p class="card-text">{{ email.email_body }}</p>
+                    <h4 class="card-title">{{ email.email_subject|slice:":30" }}</h4>
+                    <p class="card-text">{{ email.email_body|slice:":170" }}...</p>
                 </div>
             </div>
         </div>

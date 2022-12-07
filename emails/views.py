@@ -8,6 +8,8 @@ from .models import NewsletterEmails
 from django.core.mail import send_mail, EmailMessage, send_mass_mail, get_connection
 from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test
+from django.utils.translation import gettext as _
+
 
 
 # Create your views here.
@@ -49,11 +51,11 @@ def newsletteremails(request):
         newsletter_email = request.POST.get('email', None)
 
         if not newsletter_name or not newsletter_email:
-            messages.error(request, 'Please enter a currect name and email address')
+            messages.error(request, _('Please enter the currect name and email address'))
             return redirect('projects')
 
         if NewsletterEmails.objects.filter(customer_email=newsletter_email).exists():
-            messages.error(request, f'The email "{newsletter_email}" already registered')
+            messages.error(request, _(f'The email "{newsletter_email}" already registered'))
             return redirect('projects')
 
         try:
@@ -68,7 +70,7 @@ def newsletteremails(request):
             customer_email=newsletter_email
         )
         save_newsletter_user.save()
-        messages.success(request, f'{newsletter_email} email was successfully subscribed to our newsletter!')
+        messages.success(request, _(f'{newsletter_email} email was successfully subscribed to our newsletter!'))
         return redirect('projects')
 
     else:
@@ -96,7 +98,7 @@ def newsletter_senders(request):
             mail.content_subtype = 'html'
 
             if mail.send():
-                messages.success(request, "Email sent successfully")
+                messages.success(request, _("Email sent successfully"))
                 save_sented_newsletter = SentedEmails.objects.create(
                     email_subject=subject,
                     email_body=message
@@ -104,7 +106,7 @@ def newsletter_senders(request):
                 save_sented_newsletter.save()
 
             else:
-                messages.error(request, "There was an error sending email")
+                messages.error(request, _("There was an error sending email"))
 
         else:
             for error in list(form.errors.values()):

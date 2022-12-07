@@ -48,12 +48,13 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'tinymce',
     'crispy_forms',
+    "translation_manager",
 
     'projects.apps.ProjectsConfig',
     'emails.apps.EmailsConfig',
     'blog.apps.BlogConfig',
 ]
-INSTALLED_APPS += ("djcelery_email")
+INSTALLED_APPS += ("djcelery_email",)
 
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
@@ -77,6 +78,7 @@ CELERY_EMAIL_CHUNK_SIZE = 40
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "django.middleware.locale.LocaleMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -96,6 +98,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.i18n',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -144,13 +147,20 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+LANGUAGE_CODE = 'en'
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
+
+LANGUAGES = [
+    ('ar', 'Arabic'),
+    ('en', 'English'),
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "locale")
+]
 
 
 # Static files (CSS, JavaScript, Images)
@@ -174,7 +184,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # EMAIL configrations for sending emails
 # https://docs.djangoproject.com/en/4.1/topics/email/
 
-EMAIL_BACKEND = env('EMAIL_BACKEND')
+CELERY_EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
 EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_PORT = env('EMAIL_PORT')
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
