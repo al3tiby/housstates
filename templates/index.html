@@ -2,7 +2,12 @@
 {% load i18n %}
 
 <!DOCTYPE html>
-<html>
+{% if LANGUAGE_CODE == 'ar' %}
+<html dir="rtl">
+{% else %}
+<html dir="ltr">
+{% endif %}
+
 
     <head>
     <meta charset="utf-8">

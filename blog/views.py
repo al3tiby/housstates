@@ -43,7 +43,7 @@ def create_blog(request):
         save_new_blog.save()
         created_done = save_new_blog
         context = {
-            'created_done': created_done
+            'created_done': created_done,
         }
         return render(request, 'blog/create_blog.html', context)
     else:
