@@ -184,7 +184,7 @@ STATICFILES_DIRS = (
 )
 
 
-MEDIA_URL = 'images/'
+MEDIA_URL = 'static/img/uplouded/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img/uplouded')
 
 
