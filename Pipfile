@@ -15,8 +15,8 @@ django-crispy-forms = "*"
 django-celery-email = "*"
 django-translation-manager = "*"
 faker = "*"
-whitenoise = "*"
 gunicorn = "*"
+whitenoise = {extras = ["brotli"], version = "*"}
 
 [dev-packages]
 

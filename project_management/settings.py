@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
 
     'sorl.thumbnail',
@@ -87,6 +88,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+WHITENOISE_USE_FINDERS = True
 ROOT_URLCONF = 'project_management.urls'
 
 TEMPLATES = [
@@ -158,23 +160,24 @@ LANGUAGES = [
     ('ar', 'Arabic'),
     ('en', 'English'),
 ]
-
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, "locale")
 ]
 
-DJANGO_STATIC_HOST='https://housstates.herokuapp.com'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 # STATIC_HOST = os.environ.get("DJANGO_STATIC_HOST", "")
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_URL = STATIC_HOST + "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 STATIC_URL = '/static/'
 
 # Enable WhiteNoise's GZip compression of static assets.
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
