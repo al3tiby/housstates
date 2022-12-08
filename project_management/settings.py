@@ -163,27 +163,27 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, "locale")
 ]
 
+DJANGO_STATIC_HOST='https://housstates.herokuapp.com'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_URL = "static/"
+# STATIC_HOST = os.environ.get("DJANGO_STATIC_HOST", "")
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = STATIC_HOST + "/static/"
+STATIC_URL = '/static/'
 
 # Enable WhiteNoise's GZip compression of static assets.
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
-
-STATICFILES_DIRS = [
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-]
+)
+
 
 MEDIA_URL = 'images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/img/uplouded')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img/uplouded')
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
-)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
