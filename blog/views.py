@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import ListView, DetailView, UpdateView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from . import models, forms
 # Create your views here.
 
@@ -55,6 +55,15 @@ class BlogUpdateView(LoginRequiredMixin, UpdateView):
     model = models.Blog
     form_class = forms.BlogUpdateForm
     template_name = 'blog/update_blog.html'
+
+    def get_success_url(self):
+        return reverse('control_panel')
+
+
+
+class BlogDeleteView(LoginRequiredMixin, DeleteView):
+    model = models.Blog
+    template_name = "blog/confirm_delete.html"
 
     def get_success_url(self):
         return reverse('control_panel')

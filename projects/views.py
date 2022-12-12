@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth.decorators import user_passes_test
-from django.views.generic import ListView, UpdateView
+from django.views.generic import ListView, UpdateView, DeleteView
 from .models import *
 from .forms import *
 
@@ -45,6 +45,14 @@ class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Projects
     form_class = ProjectUpdateForm
     template_name = 'projects/update_project.html'
+
+    def get_success_url(self):
+        return reverse('control_panel')
+
+
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
+    model = models.Projects
+    template_name = "projects/confirm_delete.html"
 
     def get_success_url(self):
         return reverse('control_panel')
