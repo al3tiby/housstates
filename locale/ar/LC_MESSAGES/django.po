@@ -3,20 +3,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: webmaster@localhost\n"
-"POT-Creation-Date: 2022-12-07 18:30:44\n"
-"PO-Revision-Date: 2022-12-07 18:30:44\n"
+"POT-Creation-Date: 2022-12-12 14:02:43\n"
+"PO-Revision-Date: 2022-12-12 14:02:43\n"
 "Last-Translator: Server <root@localhost>\n"
 "Language-Team: English <webmaster@localhost>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: templates/blog/create_blog.html:11 templates/blog/update_blog.html:11
-#: templates/email/send/send_email.html:12
-#: templates/projects/create_project.html:11
-#: templates/projects/update_project.html:11
-msgid " back"
-msgstr "عودة"
 
 #: templates/email/contact/contact_us.html:25
 msgid "+123456789"
@@ -25,10 +18,6 @@ msgstr "+١٢٣٤٥٦٧٨٩"
 #: templates/email/contact/contact_us.html:43
 msgid "12 Example Street"
 msgstr "شارع ١٢"
-
-#: templates/projects/create_project.html:15
-msgid "A Project "
-msgstr "مشروع"
 
 #: templates/blog/create_blog.html:15
 msgid "A blog "
@@ -42,7 +31,24 @@ msgstr "لوحة تحكم الأدمن"
 msgid "Administration Log in"
 msgstr "تسجيل دخول الأدمن"
 
-#: templates/blog/create_blog.html:18
+#: templates/projects/create_project.html:15
+msgid "A Project "
+msgstr "مشروع"
+
+#: templates/blog/confirm_delete.html:14
+#: templates/projects/confirm_delete.html:14
+msgid "Are you sure you want to delete "
+msgstr "هل أنت متأكد أنك تريد حذف"
+
+#: templates/blog/create_blog.html:11 templates/blog/update_blog.html:11
+#: templates/email/send/send_email.html:12
+#: templates/projects/create_project.html:11
+#: templates/projects/update_project.html:11
+msgid " back"
+msgstr "عودة"
+
+#: templates/blog/confirm_delete.html:19 templates/blog/create_blog.html:18
+#: templates/projects/confirm_delete.html:19
 #: templates/projects/create_project.html:17
 msgid "Back to control panel"
 msgstr "الرجوع للوحة التحكم"
@@ -51,7 +57,7 @@ msgstr "الرجوع للوحة التحكم"
 msgid "Best Prices"
 msgstr "أفضل الأسعار"
 
-#: templates/index.html:31 templates/index.html:78
+#: templates/index.html:36 templates/index.html:80
 msgid "Blog"
 msgstr "مدونة"
 
@@ -70,16 +76,20 @@ msgstr "المدونات"
 msgid "Cancel"
 msgstr "رجوع"
 
-#: templates/index.html:32 templates/index.html:79
-msgid "Contact Us"
-msgstr "إتصل بنا"
+#: templates/admin/login.html:15
+msgid "click here"
+msgstr "إضغط هنا"
 
 #: templates/email/contact/contact_us.html:12
 msgid "Contact us"
 msgstr "إتصل بنا"
 
-#: templates/index.html:104
-msgid "Copyright © 2022&nbsp;Housstates"
+#: templates/index.html:37 templates/index.html:81
+msgid "Contact Us"
+msgstr "إتصل بنا"
+
+#: templates/index.html:106
+msgid "Copyright © 2022. Housstates"
 msgstr "جميع الحقوق محفوضة ٢٠٢٢. Housstates."
 
 #: templates/admin/control_panel.html:17
@@ -91,15 +101,42 @@ msgstr "إنشاء مشروع جديد"
 msgid "Create blog"
 msgstr "إنشاء تدوينة"
 
+#: emails/admin.py:12 emails/admin.py:34
+msgid "created_at"
+msgstr "تم الإنشاء في"
+
+#: emails/admin.py:12 emails/admin.py:34
+msgid "customer_email"
+msgstr "البريد الإلكتروني للعميل"
+
+#: emails/admin.py:12 emails/admin.py:34
+msgid "customer_name"
+msgstr "اسم العميل"
+
+#: templates/admin/control_panel.html:29 templates/admin/control_panel.html:87
+#: templates/blog/confirm_delete.html:15
+#: templates/projects/confirm_delete.html:15
+msgid "Delete"
+msgstr "حذف"
+
+#: templates/blog/confirm_delete.html:12
+#: templates/projects/confirm_delete.html:12
+msgid "Delete Page"
+msgstr "صفحة الحذف"
+
+#: blog/forms.py:9
+msgid "description"
+msgstr "الوصف"
+
 #: templates/blog/create_blog.html:26
 msgid "Description*"
 msgstr "الوصف"
 
-#: templates/index.html:82
+#: templates/index.html:84
 msgid "Django admin panel"
 msgstr "لوحة تحكم جانقو"
 
-#: templates/admin/control_panel.html:28 templates/admin/control_panel.html:85
+#: templates/admin/control_panel.html:28 templates/admin/control_panel.html:86
 msgid "Edit"
 msgstr "تعديل"
 
@@ -123,13 +160,17 @@ msgstr ""
 "هنا ننشر أفضل المدونات عن الهندسة والمعمارية والمباني و وتجارة العقار "
 "وأكثر..."
 
-#: templates/index.html:30 templates/index.html:77
+#: templates/index.html:35 templates/index.html:79
 msgid "Home"
 msgstr "الرئيسية"
 
-#: templates/index.html:27 templates/projects/home.html:15
+#: templates/index.html:32 templates/projects/home.html:15
 msgid "Housstates"
 msgstr "Housstates"
+
+#: emails/admin.py:12 emails/admin.py:34
+msgid "id"
+msgstr "آيدي"
 
 #: templates/email/contact/contact_us.html:13
 msgid ""
@@ -140,11 +181,20 @@ msgstr ""
 "إذا أردت التواصل معنا لأي سبب، نرحب بك لتتصل بنا، فقط اترك لنا إسمك وبريدك "
 "الإلكتروني و رسالتك، وسوف نتواصل معك قريباً."
 
-#: templates/admin/control_panel.html:73
+#: blog/forms.py:9 projects/forms.py:9
+msgid "image"
+msgstr "الصورة"
+
+#: templates/blog/create_blog.html:15
+#: templates/projects/create_project.html:15
+msgid "just created"
+msgstr "تم إنشاءه للتو"
+
+#: templates/admin/control_panel.html:74
 msgid "Latest bolgs:"
 msgstr "آخر التدوينات"
 
-#: templates/admin/control_panel.html:129
+#: templates/admin/control_panel.html:131
 msgid "Latest emails:"
 msgstr "آخر الإيميلات"
 
@@ -164,19 +214,24 @@ msgstr "العنوان"
 msgid "Login"
 msgstr "تسجيل الدخول"
 
-#: templates/index.html:81 templates/index.html:84
+#: templates/index.html:83 templates/index.html:86
 msgid "Login For Stuff"
 msgstr "تسجيل الدخول"
+
+#: emails/views.py:73
+msgid ""
+"{newsletter_email} email was successfully subscribed to our newsletter!"
+msgstr "تم الاشتراك في البريد الإلكتروني بنجاح في النشرة الإخبارية لدينا!"
 
 #: templates/email/send/send_email.html:15
 msgid "Newsletter mails sender."
 msgstr "مرسل النشرة البريدية"
 
-#: templates/admin/control_panel.html:54 templates/admin/control_panel.html:59
-#: templates/admin/control_panel.html:111
-#: templates/admin/control_panel.html:116
-#: templates/admin/control_panel.html:166
-#: templates/admin/control_panel.html:171 templates/blog/blogs.html:53
+#: templates/admin/control_panel.html:55 templates/admin/control_panel.html:60
+#: templates/admin/control_panel.html:113
+#: templates/admin/control_panel.html:118
+#: templates/admin/control_panel.html:168
+#: templates/admin/control_panel.html:173 templates/blog/blogs.html:53
 #: templates/blog/blogs.html:58 templates/projects/home.html:94
 #: templates/projects/home.html:99
 msgid "Next"
@@ -198,11 +253,11 @@ msgstr "الهاتف"
 msgid "Please enter the currect name and email address"
 msgstr "رجاءً قم بإدخال الإسم و البريد بشكل صحيح"
 
-#: templates/admin/control_panel.html:43 templates/admin/control_panel.html:48
-#: templates/admin/control_panel.html:100
-#: templates/admin/control_panel.html:105
-#: templates/admin/control_panel.html:155
-#: templates/admin/control_panel.html:160 templates/blog/blogs.html:42
+#: templates/admin/control_panel.html:44 templates/admin/control_panel.html:49
+#: templates/admin/control_panel.html:102
+#: templates/admin/control_panel.html:107
+#: templates/admin/control_panel.html:157
+#: templates/admin/control_panel.html:162 templates/blog/blogs.html:42
 #: templates/blog/blogs.html:47 templates/projects/home.html:83
 #: templates/projects/home.html:88
 msgid "Previous"
@@ -234,9 +289,13 @@ msgstr "إرسال"
 msgid "Send a bulk"
 msgstr "أرسل حملة بريدية"
 
-#: templates/admin/control_panel.html:131
+#: templates/admin/control_panel.html:133
 msgid "Send a new bulk"
 msgstr "أرسل حملة بريدية جديدة"
+
+#: blog/forms.py:9 projects/forms.py:9
+msgid "short_description"
+msgstr "وصف قصير"
 
 #: templates/blog/create_blog.html:25
 #: templates/projects/create_project.html:24
@@ -251,11 +310,11 @@ msgstr "العنوان"
 msgid "Subscribe "
 msgstr "إشتراك"
 
-#: templates/index.html:64
+#: templates/index.html:66
 msgid "Subscribe to our newsletter"
 msgstr "إشترك في نشرتنا البريدية"
 
-#: templates/index.html:65
+#: templates/index.html:67
 msgid ""
 "Subscribe to our newsletter to receive offers, discounts and the best real "
 "estate deals."
@@ -277,12 +336,16 @@ msgstr "هناك مشكلة في إرسال الإيميل"
 msgid "This page is for admins company stuff, if you are not an admin"
 msgstr "هذه الصفحة لمشرفين لشركة، إذا لم تكن مشرفاً"
 
+#: blog/forms.py:9 projects/forms.py:9
+msgid "title"
+msgstr "عنوان"
+
 #: templates/blog/create_blog.html:24
 #: templates/projects/create_project.html:23
 msgid "Title*"
 msgstr "العنوان"
 
-#: templates/index.html:24
+#: templates/index.html:29
 msgid "Toggle navigation"
 msgstr "تبديل التنقل"
 
@@ -323,7 +386,7 @@ msgid ""
 "ease."
 msgstr "مع نظامنا الأوتوماتيكي القوي، تستطيع إنجاز معاملاتك بسهولة."
 
-#: templates/admin/control_panel.html:75
+#: templates/admin/control_panel.html:76
 msgid "Write a new blog"
 msgstr "اكتب تدوينة جديدة"
 
@@ -334,49 +397,3 @@ msgstr "بريدك الإلكتروني"
 #: templates/email/newsletter.html:7
 msgid "Your name"
 msgstr "اسمك"
-
-#: templates/admin/login.html:15
-msgid "click here"
-msgstr "إضغط هنا"
-
-#: emails/admin.py:12 emails/admin.py:34
-msgid "created_at"
-msgstr "تم الإنشاء في"
-
-#: emails/admin.py:12 emails/admin.py:34
-msgid "customer_email"
-msgstr "البريد الإلكتروني للعميل"
-
-#: emails/admin.py:12 emails/admin.py:34
-msgid "customer_name"
-msgstr "اسم العميل"
-
-#: blog/forms.py:9
-msgid "description"
-msgstr "الوصف"
-
-#: emails/admin.py:12 emails/admin.py:34
-msgid "id"
-msgstr "آيدي"
-
-#: blog/forms.py:9 projects/forms.py:9
-msgid "image"
-msgstr "الصورة"
-
-#: templates/blog/create_blog.html:15
-#: templates/projects/create_project.html:15
-msgid "just created"
-msgstr "تم إنشاءه للتو"
-
-#: blog/forms.py:9 projects/forms.py:9
-msgid "short_description"
-msgstr "وصف قصير"
-
-#: blog/forms.py:9 projects/forms.py:9
-msgid "title"
-msgstr "عنوان"
-
-#: emails/views.py:73
-msgid ""
-"{newsletter_email} email was successfully subscribed to our newsletter!"
-msgstr "تم الاشتراك في البريد الإلكتروني بنجاح في النشرة الإخبارية لدينا!"
