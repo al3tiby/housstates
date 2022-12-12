@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'tinymce',
     'crispy_forms',
     "translation_manager",
+    'storages',
 
     'projects.apps.ProjectsConfig',
     'emails.apps.EmailsConfig',
@@ -168,15 +169,16 @@ LOCALE_PATHS = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-# STATIC_HOST = os.environ.get("DJANGO_STATIC_HOST", "")
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+DEFAULT_FILE_STORAGE = 'project_management.custom_azure.AzureMediaStorage'
+STATICFILES_STORAGE = 'project_management.custom_azure.AzureStaticStorage'
+STATIC_LOCATION = "static"
+MEDIA_LOCATION = "media"
+AZURE_ACCOUNT_NAME = env('AZURE_ACCOUNT_NAME')
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 
-STATIC_URL = '/static/'
-
-# Enable WhiteNoise's GZip compression of static assets.
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
 
 STATICFILES_DIRS = (
@@ -184,17 +186,12 @@ STATICFILES_DIRS = (
 )
 
 
-MEDIA_URL = 'static/img/uplouded/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img/uplouded')
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
 # EMAIL configrations for sending emails
 # https://docs.djangoproject.com/en/4.1/topics/email/
 

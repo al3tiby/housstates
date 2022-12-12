@@ -17,6 +17,7 @@ django-translation-manager = "*"
 faker = "*"
 gunicorn = "*"
 whitenoise = {extras = ["brotli"], version = "*"}
+django-storages = {extras = ["azure"], version = "*"}
 
 [dev-packages]
 
