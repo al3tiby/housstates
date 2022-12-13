@@ -128,6 +128,7 @@ DATABASES = {
 
 # admin redirect
 LOGIN_REDIRECT_URL = 'control_panel'
+LOGOUT_REDIRECT_URL = "projects"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -184,8 +185,6 @@ MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
-
 
 
 # Default primary key field type

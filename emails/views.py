@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, resolve_url
 from django.conf import settings
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
@@ -19,6 +19,11 @@ def contact_us(request):
         customer_name = request.POST['name']
         customer_email = request.POST['email']
         customer_message = request.POST['message']
+
+        if not customer_name or not customer_email or not customer_message:
+            messages.error(request, _('Please enter the currect information'))
+            not_valid_information = _('Please enter a currect information')
+            return render(request, 'email/contact/contact_us.html', {'not_valid_information': not_valid_information})
 
         save_contact = ContactData.objects.create(
             customer_name=customer_name,

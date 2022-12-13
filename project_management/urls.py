@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.contrib.auth import logout
 from . import views
 from django.urls import path, include
 from django.conf.urls.static import static
@@ -28,6 +29,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls, name='admin'),
     path('admin/login/', auth_views.LoginView.as_view(template_name='admin/login.html'), name='admin_login'),
+    path('admin/logout/', logout, name='admin_logout'),
     path('control_panel', views.admin_lists, name='control_panel'),
 
     path('', include('projects.urls')),

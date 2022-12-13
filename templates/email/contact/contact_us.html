@@ -49,6 +49,9 @@
                 {% if not thank_you_customer %}
                 <div class="col-md-6 col-lg-5 col-xl-4">
                     <div>
+                        {% if not_valid_information %}
+                        <h3><strong>{{ not_valid_information }}.</strong></h3>
+                        {% endif %}
                         <form action="{% url 'contact' %}" class="p-3 p-xl-4" method="post">
                             {% csrf_token %}
                             <!-- Start: Success Example -->
